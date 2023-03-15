@@ -1,0 +1,42 @@
+# Define Stages
+stages:
+  - build
+  - test
+  - deploy
+
+# Define build stage jobs
+build:
+  stage: build
+  script:
+    #- pip install -r requirements.txt
+    - echo "Build"
+
+# Define test stage jobs
+unit_tests:
+  stage: test
+  script:
+    #- pip install -r requirements.txt
+    #- pytest -v tests/unit
+    - echo "Unit-Tests"
+
+integration_tests:
+  stage: test
+  script:
+    #- pip install -r requirements.txt
+    #- pytest -v tests/integration
+    - echo "Integration-Tests"
+
+# Define deploy stage jobs
+deploy_to_staging:
+  stage: deploy
+  script:
+    #- pip install -r requirements.txt
+    #- sh deploy-script-for-staging.sh
+    - echo "Deploy-To-Staging"
+
+deploy_to_production:
+  stage: deploy
+  script:
+    #- pip install -r requirements.txt
+    #- sh deploy-script-for-production.sh
+    - echo "Deploy-To-Production"

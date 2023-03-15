@@ -1,0 +1,7 @@
+# Git Config
+url: https://github.com/hlop3z/cigit.git
+path: ./demo
+
+# Auth Config
+username: hlop3z
+password: (P)ersonal-(A)ccess-(T)oken
