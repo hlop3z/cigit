@@ -57,3 +57,47 @@ deploy_to_production:
   script:
     - echo "Deploy-To-Production"
 ```
+
+## **File** "**`ci-bot.py`**"
+
+```python
+import cigit
+
+cigit.cli()
+```
+
+---
+
+## **Commands**
+
+---
+
+| Command     | Description                                          |
+| ----------- | ---------------------------------------------------- |
+| **`run`**   | **Run** the pipeline                                 |
+| **`pull`**  | **Git Pull** a remote repository & run the pipeline  |
+| **`clone`** | **Git Clone** a remote repository & run the pipeline |
+
+---
+
+## **Cheatsheet**
+
+---
+
+### **Clone**
+
+```sh
+python ci-bot.py clone
+```
+
+### **Pull**
+
+```sh
+python ci-bot.py pull
+```
+
+### **Run**
+
+```sh
+python ci-bot.py run
+```
