@@ -22,7 +22,7 @@ dependencies = ["pyyaml>=6.0"]
 
 [project.urls]
 Homepage = "https://github.com/hlop3z/cigit/"
-# Documentation = "https://hlop3z.github.io/fastberry/"
+Documentation = "https://hlop3z.github.io/cigit/"
 
 [project.scripts]
 
