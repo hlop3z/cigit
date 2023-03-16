@@ -10,7 +10,7 @@ python -m pip install cigit
 
 ## **Credentials**
 
-```yaml
+```yaml title=".ci-auth.yml"
 # Git Config
 url: https://github.com/hlop3z/cigit.git
 path: ./demo
@@ -22,7 +22,7 @@ password: (P)ersonal-(A)ccess-(T)oken
 
 ## **Pipeline**
 
-```yaml
+```yaml title=".ci-git.yml"
 # Define Stages
 stages:
   - build
@@ -56,4 +56,48 @@ deploy_to_production:
   stage: deploy
   script:
     - echo "Deploy-To-Production"
+```
+
+## **File** "**`ci-bot.py`**"
+
+```python title="ci-bot.py"
+import cigit
+
+cigit.cli()
+```
+
+---
+
+## **Commands**
+
+---
+
+| Command     | Description                                          |
+| ----------- | ---------------------------------------------------- |
+| **`run`**   | **Run** the pipeline                                 |
+| **`pull`**  | **Git Pull** a remote repository & run the pipeline  |
+| **`clone`** | **Git Clone** a remote repository & run the pipeline |
+
+---
+
+## **Cheatsheet**
+
+---
+
+### **Clone**
+
+```sh
+python ci-bot.py clone
+```
+
+### **Pull**
+
+```sh
+python ci-bot.py pull
+```
+
+### **Run**
+
+```sh
+python ci-bot.py run
 ```
