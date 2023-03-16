@@ -12,3 +12,6 @@ def dir_up(depth):
 dir_up(1)
 
 import cigit
+
+
+cigit.cli()

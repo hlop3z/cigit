@@ -5,17 +5,8 @@ Linux: Disable History <unset HISTFILE>
 """
 import os
 import functools
-import yaml
-from .command import command
 from .pipeline import run_pipeline
-
-
-def load_auth(file_name: str):
-    """Load the credentials from a YAML file"""
-
-    with open(file_name, "r") as f:
-        pipeline = yaml.safe_load(f)
-        return pipeline
+from .utils import load_auth, command
 
 
 def git_base(

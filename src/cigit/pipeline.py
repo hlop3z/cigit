@@ -1,5 +1,8 @@
 import yaml
 import subprocess
+import os
+import pathlib
+from .utils import load_auth
 
 
 def run_commands(commands):
@@ -38,7 +41,7 @@ def collect_jobs_by_stage(file_name: str):
 
 
 def run_pipeline(
-    stages: list | None = None, file_name: str = ".ci-git.yml", break_length: int = 45
+    stages: list | None = None, file_name: str = ".ci-git.yml", break_length: int = 70
 ):
     """CI/CD Pipeline"""
 
@@ -48,23 +51,30 @@ def run_pipeline(
     if stages:
         do_check = True
 
+    # Config
+    config = load_auth()
+
+    # Git Repo Path
+    repo_path = str(pathlib.Path(config.get("path")).resolve())
+    os.chdir(repo_path)
+
     # Loop through each stage and execute the jobs in order
     for stage, jobs in jobs_by_stage.items():
         if do_check and stage not in stages:
             continue
         else:
-            stage_text = f"Stage: {stage}"
-            print("-" * break_length)
-            print(stage_text)
-            print("-" * break_length)
             for job in jobs:
-                print(f'Executing job: {job["name"]}')
+                print("-" * break_length)
+                print(f'Stage: {stage} | Executing Job: {job["name"]}')
                 print("-" * break_length)
                 script = job.get("script", [])
                 script = enforce_list(script)
                 run_commands(script)
-                print(f'Job completed: {job["name"]}', end="\n\n")
+                print("\n")
+                print("~" * break_length)
+                print(f'Stage: {stage} | Job Completed: {job["name"]}', end="\n")
+                print("~" * break_length, end="\n\n")
 
     # Done
     print("=" * (break_length))
-    print("All jobs completed.")
+    print("All Jobs Completed.")

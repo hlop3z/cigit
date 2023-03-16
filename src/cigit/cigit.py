@@ -2,19 +2,24 @@ import argparse
 from .pipeline import run_pipeline as run
 from .gitman import clone, pull
 
-parser = argparse.ArgumentParser()
 
-# Args
-parser.add_argument("action", help="Options: [run, clone, pull]")
-parser.add_argument("-s", "--stages", help="Stages of the Pipeline you want to run")
-parser.add_argument("-c", "--config", help="Use custom setting's file")
+def cli():
+    """Command Line Interface"""
 
-args = parser.parse_args()
+    # Parser
+    parser = argparse.ArgumentParser()
 
-match args.action:
-    case "run":
-        run()
-    case "clone":
-        clone()
-    case "pull":
-        pull()
+    # Args
+    parser.add_argument("action", help="Options: [run, clone, pull]")
+    parser.add_argument("-s", "--stages", help="Stages of the Pipeline you want to run")
+    parser.add_argument("-c", "--config", help="Use custom setting's file")
+
+    args = parser.parse_args()
+
+    match args.action:
+        case "run":
+            run()
+        case "clone":
+            clone()
+        case "pull":
+            pull()

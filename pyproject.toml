@@ -4,7 +4,7 @@ build-backend = "pdm.pep517.api"
 
 [project]
 name = "cigit"
-version = "0.0.1"
+version = "0.0.2"
 description = "GraphQL Made Easy"
 requires-python = ">=3.10"
 readme = "README.md"
@@ -52,7 +52,6 @@ test = ["pytest>=7.2.2"]
 [tool.pdm.scripts]
 pre = { shell = "pre-commit run --all-file" }
 # Test
-test2 = "python tests/cmd.py"
 test = "python tests/test_pipelines.py"
 # Docs
 docs-dev = { shell = "cd docs/ && python -m mkdocs serve --dev-addr 0.0.0.0:8055" }
