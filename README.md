@@ -8,7 +8,7 @@
 python -m pip install cigit
 ```
 
-## **Credentials**
+## **Credentials** "**`.ci-auth.yml`**"
 
 ```yaml
 # Git Config
@@ -20,7 +20,7 @@ username: hlop3z
 password: (P)ersonal-(A)ccess-(T)oken
 ```
 
-## **Pipeline**
+## **Pipeline** "**`.ci-git.yml`**"
 
 ```yaml
 # Define Stages
